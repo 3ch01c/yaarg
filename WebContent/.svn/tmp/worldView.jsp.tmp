@@ -1,0 +1,246 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="utf-8"%>
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="java.util.Iterator"%>
+<%@ page import="edu.nmt.cs.itweb.*"%>
+<%
+	session = request.getSession();
+	
+	// Get current character from user's character list stored in session based off ID parameter in request
+	String charId = request.getParameter("charId").toString();
+	@SuppressWarnings(value = "unchecked")
+	ArrayList<GameCharacter> characters = (ArrayList<GameCharacter>) request.getSession().getAttribute("CharacterList");
+	Iterator<GameCharacter> charItr = characters.iterator();
+	while (charItr.next().getId() != charId) { };
+	GameCharacter character = (GameCharacter) charItr.next();
+        ArrayList<GameCharacter> characters = (ArrayList<GameCharacter>)request.getSession().getAttribute("CharacterList");
+        Iterator<GameCharacter> charItr = characters.iterator();
+			while (charItr.hasNext()) {
+				GameCharacter character = (GameCharacter) charItr.next();
+                                if(character.getName().equals(charName))
+                                    {
+                                        session.setAttribute("currentChar", character);
+                                    }
+                                }
+%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<title>World View</title>
+<link rel="stylesheet" type="text/css" href="css/all.css" />
+<script type="text/javascript"
+	src="http://maps.google.com/maps/api/js?sensor=true"></script>
+<script type="text/javascript">
+	var playerName = "<%=character.getName()%>",
+		playerAddress = "<%=character.getLocation()%>",
+		playerIcon = "<%=character.getIcon_url()%>"; // player's geocode, map is centered here
+
+	function initialize() {
+<<<<<<< .mine
+=======
+		var myOptions = {
+			zoom : 17,
+			center : myHouse,
+			mapTypeId : google.maps.MapTypeId.TERRAIN
+		};
+		map = new google.maps.Map(document.getElementById("map_canvas"),
+				myOptions);
+>>>>>>> .r118
+		/*
+		street = map.getStreetView();
+		street.setPov({
+			heading: 265,
+			zoom:1,
+			pitch:0}
+		);
+		street.setPosition(myHouse);
+		street.setVisible(true);
+		 */
+		alert("Entering world at " + address + "...");
+		loc = new google.maps.LatLng();
+		
+		// Convert character's address to a geocode.
+		var geocoder = new google.maps.Geocoder();
+		geocoder.geocode( {
+			'address' : playerAddress
+		}, function(results, status) {
+			if (status == google.maps.GeocoderStatus.OK) {
+				loc = results[0].geometry.location;
+			} else {
+				alert("Geocode was not successful! " + status);
+			}
+		});
+
+		// Create map
+		var map = new google.maps.Map(document.getElementById("map_canvas"), {
+			zoom : 17,
+			center : loc,
+			mapTypeId : google.maps.MapTypeId.TERRAIN
+		});
+
+		// Create player marker
+		var charIcon = new google.maps.MarkerImage(playerIcon,
+				new google.maps.Size(31, 50), new google.maps.Point(0, 0), // origin
+				new google.maps.Point(0, 50)) // anchor
+
+		var iconShadow = new google.maps.MarkerImage('images/shadow.png',
+				new google.maps.Size(50, 50), new google.maps.Point(0, 0), // origin
+				new google.maps.Point(0, 50)) // anchor
+		var player = new google.maps.Marker( {
+			position : results[0].geometry.location,
+			title : playerName,
+			icon : charIcon,
+			shadow : iconShadow,
+			map : map,
+			draggable : true
+		});
+
+<<<<<<< .mine
+		/*		startPoint = player.getPosition();
+		 map.setCenter(startPoint);
+		 alert(startPoint);
+		 */
+=======
+		geocode.geocode({'address': address}, function(results, status) {
+			if (status == google.maps.GeocoderStatus.OK) {
+				player = new google.maps.Marker({
+					position : results[0].geometry.location,
+					title : playerName,
+					icon : charIcon,
+					shadow : iconShadow,
+					map : map,
+					draggable : true
+				});
+			} else {
+				alert("Geocode was not successful! " + status);
+			}
+		});
+/*		startPoint = player.getPosition();
+		map.setCenter(startPoint);
+		alert(startPoint);
+*/
+>>>>>>> .r118
+		google.maps.event.addListener(map, 'click', function(event) {
+			movePlayer(event.latLng);
+		});
+
+		google.maps.event.addListener(player, 'click', function() {
+			playerInfo();
+		});
+
+	}
+
+	function playerInfo() {
+		loc = player.getPosition();
+		alert("You clicked at " + loc);
+	}
+
+	function movePlayer(loc) {
+		//alert("You clicked at "+loc);
+		player.setPosition(loc);
+		map.setCenter(loc);
+		lat = player.getPosition().lat();
+		lng = player.getPosition().lng();
+	}
+
+	function detectEvent() {
+		e = event;
+		var keynum = e.keyCode || e.which;
+		var keychar = String.fromCharCode(keynum);
+		switch (keychar) {
+		case "w":
+			lat += .0001;
+			updateLoc();
+			break;
+		case "a":
+			lng -= .0001;
+			updateLoc();
+			break;
+		case "s":
+			lat -= .0001;
+			updateLoc();
+			break;
+		case "d":
+			lng += .0001;
+			updateLoc();
+			break;
+		case "i":
+			inventory();
+			break;
+		case "q":
+			questLog();
+			break;
+		case "W":
+			lat += .001;
+			updateLoc();
+			break;
+		case "A":
+			lng -= .001;
+			updateLoc();
+			break;
+		case "S":
+			lat -= .001;
+			updateLoc();
+			break;
+		case "D":
+			lng += .001;
+			updateLoc();
+			break;
+		default:
+			//alert('The "' + keychar + '" key doesn\'t do anything... yet.');
+			break;
+		}
+	}
+
+	function updateLoc() {
+		loc = new google.maps.LatLng(lat, lng);
+		player.setPosition(loc);
+		map.setCenter(loc);
+	}
+
+	function inventory() {
+		if (document.getElementById("inventory").style.visibility == "hidden") {
+			document.getElementById("inventory").style.visibility = "visible";
+			document.getElementById("questLog").style.visibility = "hidden";
+		} else
+			document.getElementById("inventory").style.visibility = "hidden";
+	}
+
+	function questLog() {
+		if (document.getElementById("questLog").style.visibility == "hidden") {
+			document.getElementById("questLog").style.visibility = "visible";
+			document.getElementById("inventory").style.visibility = "hidden";
+		} else
+			document.getElementById("questLog").style.visibility = "hidden";
+	}
+</script>
+<style type="text/css">
+html,body,#map_canvas {
+	height: 100%;
+	width: 100%;
+}
+
+.hud {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	width: 20%;
+	height: 100%;
+	visibility: hidden;
+	background-color: black;
+	padding: 5px;
+}
+</style>
+</head>
+<body onload="initialize(); document.focus();" onkeypress=
+	detectEvent();
+>
+<div id="map_canvas"></div>
+<div id="inventory" class="hud"><iframe src="inventory.jsp"
+	frameborder="0">Your browser doesn't support iframes.</iframe></div>
+<div id="questLog" class="hud"><iframe src="questLog.jsp"
+	frameborder="0">Your browser doesn't support iframes.</iframe></div>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<title>World View</title>
+<link rel="stylesheet" type="text/css" href="css/all.css" />
+<script type="text/javascript"
+	src="http://maps.google.com/maps/api/js?sensor=true">
+</script>
+<script type="text/javascript">
+	var playerName = "Player_001";
+	var player;
+	var lat = 34.054937;
+	var lng = -106.896788;
+	var myHouse = new google.maps.LatLng(34.054937,-106.896788)
+	var map;
+	function initialize() {
+		var myOptions = {
+ 		    zoom: 17,
+		    center: myHouse,
+		    mapTypeId: google.maps.MapTypeId.ROADMAP
+		};
+		map = new google.maps.Map(document.getElementById("map_canvas"),
+			myOptions);
+		/*
+		street = map.getStreetView();
+		street.setPov({
+			heading: 265,
+			zoom:1,
+			pitch:0}
+		);
+		street.setPosition(myHouse);
+		street.setVisible(true);
+		*/
+		var charIcon = new google.maps.MarkerImage('images/auron.png',
+			new google.maps.Size(31,50),
+			new google.maps.Point(0,0),  // origin
+			new google.maps.Point(0,50)) // anchor
+		
+		var iconShadow = new google.maps.MarkerImage('images/iconShadow.png',
+			new google.maps.Size(50,50),
+			new google.maps.Point(0,0),  // origin
+			new google.maps.Point(0,50)) // anchor
+		
+		player = new google.maps.Marker({
+			position: myHouse,
+			title: playerName,
+			icon: charIcon,
+			shadow: iconShadow,
+			map: map
+		});
+		google.maps.event.addListener(map, 'click', function(event) {
+			movePlayer(event.latLng);
+		});
+	}
+
+	function movePlayer(loc) {
+		//alert("You clicked at "+loc+"");
+		player.setPosition(loc);
+		map.setCenter(loc);
+	};
+
+	function detectEvent(){
+		e = event;
+		var keynum = e.keyCode || e.which;
+		var keychar = String.fromCharCode(keynum);
+		switch(keychar){
+			case "w":
+				lat += .0001;
+				break;
+			case "a":
+				lng -= .0001;
+				break;
+			case "s":
+				lat -= .0001;
+				break;
+			case "d":
+				lng += .0001;
+				break;
+			case "W":
+				lat += .001;
+				break;
+			case "A":
+				lng -= .001;
+				break;
+			case "S":
+				lat -= .001;
+				break;
+			case "D":
+				lng += .001;
+				break;
+			default:
+				alert('The "'+keychar+'" key doesn\'t do anything... yet.');
+				break;
+		}
+		loc = new google.maps.LatLng(lat,lng);
+		player.setPosition(loc);
+		map.setCenter(loc);
+	}
+</script>
+<style type="text/css">
+html,body,#map_canvas {
+	height: 100%;
+	width: 100%;
+}
+</style>
+</head>
+<body onload="initialize()" onkeypress="detectEvent()">
+<div id="map_canvas"></div>
+</body>
+</html>

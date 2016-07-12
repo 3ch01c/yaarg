@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<link rel="stylesheet" type="text/css" href="css/all.css" />
+<base target="mainframe" />
+<script type="text/javascript" src="js/gameServletAjaxFunctions.js"></script>
+<script type="text/javascript">
+	function inventory() {
+		if (document.getElementById("inventory").style.visibility == "hidden") {
+			document.getElementById("inventory").style.visibility = "visible";
+			document.getElementById("questLog").style.visibility = "hidden";
+		} else
+			document.getElementById("inventory").style.visibility = "hidden";
+	}
+	
+	function questLog() {
+		if (document.getElementById("questLog").style.visibility == "hidden") {
+			document.getElementById("questLog").style.visibility = "visible";
+			document.getElementById("inventory").style.visibility = "hidden";
+		} else
+			document.getElementById("questLog").style.visibility = "hidden";
+	}
+</script>
+<style type="text/css">
+#mainframe {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 110px;
+}
+
+#chatframe {
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	height: 100px;
+	width: 50%;
+}
+
+#commandframe {
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+	height: 100px;
+	width: 50%;
+}
+
+input {
+	height: 100%;
+	width: 100%;
+}
+.hud {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	width: 20%;
+	height: 100%;
+	visibility: hidden;
+	background-color: black;
+}
+</style>
+</head>
+<body>
+<div id="chatframe"><iframe src="chat.html" frameborder=0></iframe></div>
+<<<<<<< .mine
+<div id="commandframe"><input type="button" value="Inventory" onclick="inventory()" />
+<input type="button" value="Quest" onclick="quest()" />
+<script type="text/javascript">populateButtons("navigation");</script>
+=======
+<div id="commandframe">
+<script type="text/javascript">populateButtons("navigation");</script>
+>>>>>>> .r182
+</div>
+<div id="mainframe"><iframe src="userHome.jsp" frameborder=0 name="mainframe"></iframe></div>
+<div id="inventory" class="hud"><iframe
+	src="inventory.jsp" frameborder="0">Your browser doesn't
+support iframes.</iframe></div>
+<div id="questLog" class="hud"><iframe
+	src="questLog.jsp" frameborder="0">Your browser doesn't
+support iframes.</iframe></div>
+<div id="battleRequest" class="hud"><iframe src="" frameborder="0"></iframe></div>
+<script type="text/javascript">pollGameServlet();</script>
+</body>
+</html>

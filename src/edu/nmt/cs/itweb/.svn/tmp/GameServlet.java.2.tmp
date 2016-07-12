@@ -1,0 +1,362 @@
+package edu.nmt.cs.itweb;
+
+import java.sql.*;
+import java.util.HashMap;
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.servlet.ServletConfig;
+import java.util.ArrayList;
+
+public class GameServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 *
+	 * Processes requests for both HTTP GET & POST methods.
+	 *
+	 * @param request
+	 *            servlet request
+	 * @param response
+	 *            servlet response
+	 * @throws ServletException
+	 *             if a servlet-specific error occurs
+	 * @throws IOException
+	 *             if an I/O error occurs
+	 */
+	private Connection connection;
+	@SuppressWarnings("unused")
+	// TODO Make use of statement or delete it
+	private Statement statement;
+	@SuppressWarnings("unused")
+	// TODO Make use of exception or delete it
+	private Exception exception;
+	private HashMap<Integer, HttpSession> charIdToSession;
+	@SuppressWarnings("unused")
+	// TODO Make use of charIdToBattle or delete it
+	private HashMap<Integer, GameBattle> charIdToBattle;
+	private GameMap gameMap;
+
+	@Override
+	public void init(ServletConfig servletconfig) throws ServletException {
+		super.init(servletconfig);
+		try {
+			this.connection = DBConnection.getConnection();
+			this.statement = connection.createStatement();
+			this.gameMap = new GameMap();
+
+			charIdToSession = new HashMap<Integer, HttpSession>();
+			charIdToBattle = new HashMap<Integer, GameBattle>();
+		} catch (Exception e) {
+			this.exception = e;
+		}
+	}
+
+	protected synchronized void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		try
+		{
+			HttpSession session = request.getSession();
+			String requestType = request.getParameter("type");
+			String email = request.getParameter("email");
+			String message = "";
+
+			// if someone just logged in, we pull their GameCharacter info from
+			// the database and send them a list of GameCharacters
+			if (requestType.equals("getChars"))
+			{
+				ArrayList<GameCharacter> characterList = null;
+				try {
+					characterList = GameCharacter.listCharacters(email);
+				} catch (SQLException e) {
+					message = e.toString();
+				}
+				session.setAttribute("CharacterList", characterList);
+				session.setAttribute("message", message);
+				response.sendRedirect("characters.jsp");
+			}
+			else if (requestType.equals("requestForButtons"))
+			{
+				String buttonsNeeded = request.getParameter("buttonType");
+				getServletContext().getRequestDispatcher("/ButtonServlet?type=" + buttonsNeeded).forward(request, response);
+			}
+			else if (requestType.equals("charSelect"))
+			{
+				Integer charId = Integer.parseInt(request.getParameter("charId"));
+				GameCharacter character = GameCharacter.getCharacter(charId);
+				session.setAttribute("currentChar", character);
+				session.setAttribute("inventory", Inventory.getInventory(charId));
+                session.setAttribute("skillInventory", SkillInventory.getSkillInventory(charId));
+				charIdToSession.put(charId, session);
+				gameMap.add(character);
+				response.sendRedirect("map.jsp");
+			}
+                        else if (requestType.equals("skills"))
+                        {
+                            ArrayList<Skill> skInv = (ArrayList<Skill>)session.getAttribute("skillInventory");
+                            for(int i = 0; i< skInv.size(); i++)
+                            {
+                                out.println(skInv.get(i).getName());
+                            }
+                        }
+			else if (requestType.equals("startBattle"))
+			{
+                            if(session.getAttribute("battle") != null)
+                            {
+                                getServletContext().getRequestDispatcher("/BattleServlet?type=fight").forward(request, response);
+                            }
+                            else
+                            {
+				//use this string to test
+				//http://localhost:8084/GameServlet?type=startBattle&enemyId="YOUR IDs HERE"
+				int enemyId = Integer.parseInt(request.getParameter("enemyId"));
+				GameCharacter enemy = null;
+				GameBattle newBattle = null;
+				boolean pvp = true;
+				if(enemyId == -1)
+				{
+					pvp = false;
+					//when enemyId is "-1", that means we're creating a new npc at random to fight
+					enemy = GameCharacter.NPC(1, false);
+				}
+				else
+				{
+					try
+					{
+						// Build enemy character object
+						enemy = GameCharacter.getCharacter(enemyId);
+					}
+					catch(Exception e)
+					{
+						request.setAttribute("error", e);
+						request.setAttribute("message", "enemy id: "+enemyId+" not in DB");
+						getServletContext().getRequestDispatcher("/Error.jsp").forward(request, response);
+					}
+
+					if(enemy.getType().equals("NPC"))
+					{
+						pvp = false;
+					}
+					else
+					{
+						pvp = true;
+					}
+				}
+				//PVP case
+				if(pvp)
+				{
+					HttpSession enemySession = charIdToSession.get(enemyId);
+					if(enemySession != null)
+					{
+						enemy = (GameCharacter)(enemySession.getAttribute("currentChar"));
+						newBattle = new GameBattle((GameCharacter)session.getAttribute("currentChar"), enemy, pvp);
+                                                enemySession.setAttribute("battle", newBattle);
+                                                session.setAttribute("battle", newBattle);
+                                                enemySession.setAttribute("pollMessage", "battleRequest");
+					}
+					else
+					{
+						Exception e = new Exception();
+						request.setAttribute("error", e);
+						message = "Enemy's session does not exist: "+"\n"+charIdToSession.keySet().toString();
+						request.setAttribute("message", message);
+						getServletContext().getRequestDispatcher("/Error.jsp").forward(request, response);
+					}
+				}
+				//this is in the case of NOT pvp
+				else
+				{
+                                    newBattle = new GameBattle((GameCharacter)session.getAttribute("currentChar"), enemy, pvp);
+                                    session.setAttribute("battle", newBattle);
+                                    getServletContext().getRequestDispatcher("/BattleServlet?type=fight").forward(request, response);
+				}
+
+                                //getServletContext().getRequestDispatcher("/BattleServlet?type=whoGoesFirst").forward(request, response);
+                            }
+			}
+                        else if (requestType.equals("join"))
+                        {
+                            getServletContext().getRequestDispatcher("/BattleServlet?type=fight").forward(request, response);
+                        }
+                        //the user received the message that they had a battle request
+                        //now that user is getting the request
+                        else if(requestType.equals("getBattleRequest"))
+                        {
+                            getServletContext().getRequestDispatcher("/getBattleRequest.jsp").forward(request, response);
+                        }
+                        else if(requestType.equals("initBattleRequest"))
+                        {
+                            getServletContext().getRequestDispatcher("/initBattleRequest.jsp").forward(request, response);
+                        }
+                        else if(requestType.equals("continueBattle"))
+                        {
+                            getServletContext().getRequestDispatcher("/BattleServlet?type=continueBattle&skill="+request.getParameter("skill")).forward(request, response);
+                        }
+                        else if(requestType.equals("processTurn"))
+                        {
+                            HttpSession turns;
+                            HttpSession notTurns;
+                            GameBattle currentBattle = (GameBattle)session.getAttribute("battle");
+                            Integer turnsId = currentBattle.whoseTurn();
+                            Integer notTurnsId = currentBattle.whoseNotTurn();
+                            turns = charIdToSession.get(turnsId);
+                            notTurns = charIdToSession.get(notTurnsId);
+                            turns.setAttribute("pollMessage", "turn");
+                            turns.setAttribute("battleMessage", currentBattle.getBattleMessage());
+                            notTurns.setAttribute("battleMessage", currentBattle.getBattleMessage());
+                        }
+                        //when I refuse someones request, I let them know, and I get rid of the "battle" form my session
+                        else if(requestType.equals("refuseBattleRequest"))
+                        {
+                            GameBattle currentBattle  = (GameBattle)session.getAttribute("battle");
+                            GameCharacter enemy = currentBattle.getPlayer2();
+                            HttpSession enemySession = charIdToSession.get(enemy.getId());
+                            enemySession.setAttribute("pollMessage", "battleRefused");
+                            session.setAttribute("battle", null);
+                        }
+                        //when my battle was refused by someone, we get rid of it
+                        else if(requestType.equals("battleRefused"))
+                        {
+                            session.setAttribute("battle", null);
+                        }
+                        //note that if you send a message using "out.print()", DONT use out.println()
+                        //that was our issue, the newline character was screwing up the javascript string comparison
+                        else if(requestType.equals("poll"))
+                        {
+                            if(session.getAttribute("pollMessage") != null)
+                            {
+                                out.print(session.getAttribute("pollMessage"));
+                                //once we've sent the message, we can only assume that the player got it, and
+                                //we don't want to send it again on the next poll
+                                session.setAttribute("pollMessage", "none");
+                            }
+                            else
+                            {
+                                out.print("none");
+                            }
+                        }
+                        else if(requestType.equals("sendMessage"))
+                        {
+                            String recipient;
+                            if((recipient = (String)request.getParameter("recipient")) != null)
+                            {
+                                HttpSession recipientSession;
+                                if((recipientSession = charIdToSession.get(Integer.parseInt(recipient))) != null)
+                                {
+                                    recipientSession.setAttribute("pollMessage", request.getParameter("message"));
+                                    out.print("message: "+request.getParameter("message"));
+                                }
+                                else
+                                {
+                                    out.println("recipient: "+recipient);
+                                    out.println("session missing");
+                                    out.println("sessions:");
+                                    out.println(charIdToSession.keySet().toString());
+                                }
+                            }
+                            else
+                            {
+                                session.setAttribute("pollMessage", request.getParameter("message"));
+                                out.print("message: "+request.getParameter("message"));
+                            }
+                        }
+                        else if(requestType.equals("battleMessagePoll"))
+                        {
+                            String battleMessage = "none";
+                            if((session.getAttribute("battleMessage")) != null)
+                            {
+                                battleMessage = (String)session.getAttribute("battleMessage");
+                                session.setAttribute("battleMessage", "none");
+                            }
+
+                            out.print(battleMessage);
+                        }
+                        else if(requestType.equals("sendBattleMessage"))
+                        {
+                            if(request.getParameter("recipient") != null)
+                            {
+                                HttpSession recipientSession;
+                                if((recipientSession = charIdToSession.get(Integer.parseInt(request.getParameter("recipient")))) != null)
+                                {
+                                    if(request.getParameter("message") != null)
+                                    {
+                                        recipientSession.setAttribute("battleMessage", request.getParameter("message"));
+                                    }
+                                    else
+                                    {
+                                        out.print("no message");
+                                    }
+                                }
+                                else
+                                {
+                                    out.print("no session");
+                                }
+                            }
+                            else
+                            {
+                                out.print("no recipient");
+                            }
+                        }
+		} catch (Exception e) {
+			// Following line commented out because it throws null pointer exception.
+			//out.println("<br/>Exception: " + exception.toString());
+			out.println("Exception: " + e);
+                        out.println("Stack Trace: ");
+                        e.printStackTrace(out);
+                        out.println("requestType: "+request.getParameter("type"));
+		} finally {
+			out.close();
+		}
+	}
+
+	/**
+	 * Handles the HTTP GET method.
+	 *
+	 * @param request
+	 *            servlet request
+	 * @param response
+	 *            servlet response
+	 * @throws ServletException
+	 *             if a servlet-specific error occurs
+	 * @throws IOException
+	 *             if an I/O error occurs
+	 */
+	@Override
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		processRequest(request, response);
+	}
+
+	/**
+	 * Handles the HTTP POST method.
+	 *
+	 * @param request
+	 *            servlet request
+	 * @param response
+	 *            servlet response
+	 * @throws ServletException
+	 *             if a servlet-specific error occurs
+	 * @throws IOException
+	 *             if an I/O error occurs
+	 */
+	@Override
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		processRequest(request, response);
+	}
+
+	/**
+	 * Returns a short description of the servlet.
+	 *
+	 * @return a String containing servlet description
+	 */
+	@Override
+	public String getServletInfo() {
+		return "gameServlet";
+	}
+}

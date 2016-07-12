@@ -1,0 +1,164 @@
+package edu.nmt.cs.itweb;
+
+public class Item {
+
+	public Integer id;
+	public String name;
+	public String type;
+	public String[] equip_slots;
+	public Integer hp_bonus;
+	public Integer hp_regen_bonus;
+	public Integer mana_bonus;
+	public Integer mana_regen_bonus;
+	public Integer str_bonus;
+	public Integer mag_bonus;
+	public Integer dex_bonus;
+	public Integer luck_bonus;
+	public Integer armor_pen_bonus;
+	public Integer magic_pen_bonus;
+	public Integer armor_bonus;
+	public Integer magic_res_bonus;
+	public String icon;
+
+	public Item() {
+		super();
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public String[] getEquip_slots() {
+		return equip_slots;
+	}
+
+	public void setEquip_slots(String[] equipSlots) {
+		equip_slots = equipSlots;
+	}
+
+	public Integer getHp_bonus() {
+		return hp_bonus;
+	}
+
+	public void setHp_bonus(Integer hpBonus) {
+		hp_bonus = hpBonus;
+	}
+
+	public Integer getHp_regen_bonus() {
+		return hp_regen_bonus;
+	}
+
+	public void setHp_regen_bonus(Integer hpRegenBonus) {
+		hp_regen_bonus = hpRegenBonus;
+	}
+
+	public Integer getMana_bonus() {
+		return mana_bonus;
+	}
+
+	public void setMana_bonus(Integer manaBonus) {
+		mana_bonus = manaBonus;
+	}
+
+	public Integer getMana_regen_bonus() {
+		return mana_regen_bonus;
+	}
+
+	public void setMana_regen_bonus(Integer manaRegenBonus) {
+		mana_regen_bonus = manaRegenBonus;
+	}
+
+	public Integer getStr_bonus() {
+		return str_bonus;
+	}
+
+	public void setStr_bonus(Integer strBonus) {
+		str_bonus = strBonus;
+	}
+
+	public Integer getMag_bonus() {
+		return mag_bonus;
+	}
+
+	public void setMag_bonus(Integer magBonus) {
+		mag_bonus = magBonus;
+	}
+
+	public Integer getDex_bonus() {
+		return dex_bonus;
+	}
+
+	public void setDex_bonus(Integer dexBonus) {
+		dex_bonus = dexBonus;
+	}
+
+	public Integer getLuck_bonus() {
+		return luck_bonus;
+	}
+
+	public void setLuck_bonus(Integer luckBonus) {
+		luck_bonus = luckBonus;
+	}
+
+	public Integer getArmor_pen_bonus() {
+		return armor_pen_bonus;
+	}
+
+	public void setArmor_pen_bonus(Integer armorPenBonus) {
+		armor_pen_bonus = armorPenBonus;
+	}
+
+	public Integer getMagic_pen_bonus() {
+		return magic_pen_bonus;
+	}
+
+	public void setMagic_pen_bonus(Integer magicPenBonus) {
+		magic_pen_bonus = magicPenBonus;
+	}
+
+	public Integer getArmor_bonus() {
+		return armor_bonus;
+	}
+
+	public void setArmor_bonus(Integer armorBonus) {
+		armor_bonus = armorBonus;
+	}
+
+	public Integer getMagic_res_bonus() {
+		return magic_res_bonus;
+	}
+
+	public void setMagic_res_bonus(Integer magicResBonus) {
+		magic_res_bonus = magicResBonus;
+	}
+
+	public String getIcon() {
+		return icon;
+	}
+
+	public void setIcon(String icon) {
+		this.icon = icon;
+	}
+
+    
+}

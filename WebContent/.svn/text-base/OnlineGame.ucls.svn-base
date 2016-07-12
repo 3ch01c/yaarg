@@ -1,0 +1,286 @@
+<class-diagram version="0.9.86" automaticImage="PNG" icons="true" always-add-relationships="false" 
+  generalizations="true" realizations="true" associations="true" dependencies="false" nesting-relationships="true">  
+  <class corner="BOTTOM_RIGHT" language="java" name="edu.nmt.cs.itweb.Skill" project="OnlineGame" 
+    file="/OnlineGame/src/edu/nmt/cs/itweb/Skill.java" binary="false">    
+    <position x="41" y="37" width="172" height="734"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="edu.nmt.cs.itweb.Quest" project="OnlineGame" 
+    file="/OnlineGame/src/edu/nmt/cs/itweb/Quest.java" binary="false">    
+    <position x="1032" y="1005" width="-1" height="-1"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="edu.nmt.cs.itweb.NpcMgr" project="OnlineGame" 
+    file="/OnlineGame/src/edu/nmt/cs/itweb/NpcMgr.java" binary="false">    
+    <position x="273" y="37" width="210" height="110"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="edu.nmt.cs.itweb.Inventory" project="OnlineGame" 
+    file="/OnlineGame/src/edu/nmt/cs/itweb/Inventory.java" binary="false">    
+    <position x="615" y="420" width="-1" height="-1"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="edu.nmt.cs.itweb.BattleServlet" project="OnlineGame" 
+    file="/OnlineGame/src/edu/nmt/cs/itweb/BattleServlet.java" binary="false">    
+    <position x="370" y="438" width="-1" height="-1"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="edu.nmt.cs.itweb.ButtonServlet" project="OnlineGame" 
+    file="/OnlineGame/src/edu/nmt/cs/itweb/ButtonServlet.java" binary="false">    
+    <position x="376" y="246" width="-1" height="-1"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="edu.nmt.cs.itweb.GameBattle" project="OnlineGame" 
+    file="/OnlineGame/src/edu/nmt/cs/itweb/GameBattle.java" binary="false">    
+    <position x="1278" y="194" width="-1" height="-1"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="edu.nmt.cs.itweb.GameCharacter" project="OnlineGame" 
+    file="/OnlineGame/src/edu/nmt/cs/itweb/GameCharacter.java" binary="false">    
+    <position x="1496" y="1240" width="-1" height="-1"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="edu.nmt.cs.itweb.details" project="OnlineGame" 
+    file="/OnlineGame/src/edu/nmt/cs/itweb/details.java" binary="false">    
+    <position x="615" y="80" width="-1" height="-1"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="edu.nmt.cs.itweb.QuestMgr" project="OnlineGame" 
+    file="/OnlineGame/src/edu/nmt/cs/itweb/QuestMgr.java" binary="false">    
+    <position x="1019" y="76" width="-1" height="-1"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="edu.nmt.cs.itweb.Level" project="OnlineGame" 
+    file="/OnlineGame/src/edu/nmt/cs/itweb/Level.java" binary="false">    
+    <position x="594" y="297" width="-1" height="-1"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="edu.nmt.cs.itweb.GameMap" project="OnlineGame" 
+    file="/OnlineGame/src/edu/nmt/cs/itweb/GameMap.java" binary="false">    
+    <position x="1015" y="466" width="-1" height="-1"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="edu.nmt.cs.itweb.GameServlet" project="OnlineGame" 
+    file="/OnlineGame/src/edu/nmt/cs/itweb/GameServlet.java" binary="false">    
+    <position x="1028" y="261" width="-1" height="-1"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="edu.nmt.cs.itweb.ItemMgr" project="OnlineGame" 
+    file="/OnlineGame/src/edu/nmt/cs/itweb/ItemMgr.java" binary="false">    
+    <position x="619" y="208" width="-1" height="-1"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="edu.nmt.cs.itweb.Button" project="OnlineGame" 
+    file="/OnlineGame/src/edu/nmt/cs/itweb/Button.java" binary="false">    
+    <position x="559" y="674" width="-1" height="-1"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="edu.nmt.cs.itweb.CharacterMgr" project="OnlineGame" 
+    file="/OnlineGame/src/edu/nmt/cs/itweb/CharacterMgr.java" binary="false">    
+    <position x="370" y="605" width="-1" height="-1"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="edu.nmt.cs.itweb.DBConnection" project="OnlineGame" 
+    file="/OnlineGame/src/edu/nmt/cs/itweb/DBConnection.java" binary="false">    
+    <position x="1293" y="691" width="-1" height="-1"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="edu.nmt.cs.itweb.Item" project="OnlineGame" 
+    file="/OnlineGame/src/edu/nmt/cs/itweb/Item.java" binary="false">    
+    <position x="824" y="636" width="-1" height="-1"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="edu.nmt.cs.itweb.MarketPlace" project="OnlineGame" 
+    file="/OnlineGame/src/edu/nmt/cs/itweb/MarketPlace.java" binary="false">    
+    <position x="1268" y="628" width="-1" height="-1"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="edu.nmt.cs.itweb.AccountMgr" project="OnlineGame" 
+    file="/OnlineGame/src/edu/nmt/cs/itweb/AccountMgr.java" binary="false">    
+    <position x="1274" y="428" width="-1" height="-1"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class corner="BOTTOM_RIGHT" language="java" name="edu.nmt.cs.itweb.SkillInventory" project="OnlineGame" 
+    file="/OnlineGame/src/edu/nmt/cs/itweb/SkillInventory.java" binary="false">    
+    <position x="596" y="540" width="-1" height="-1"/>    
+    <display autosize="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <association>    
+    <source project="OnlineGame" name="edu.nmt.cs.itweb.GameCharacter" 
+      file="/OnlineGame/src/edu/nmt/cs/itweb/GameCharacter.java" binary="false" navigable="false">      
+      <attribute name="questLog"/>      
+      <multiplicity minimum="0" maximum="2147483647"/>    
+    </source>    
+    <target project="OnlineGame" name="edu.nmt.cs.itweb.Quest" file="/OnlineGame/src/edu/nmt/cs/itweb/Quest.java" 
+      binary="false" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <source project="OnlineGame" name="edu.nmt.cs.itweb.GameServlet" 
+      file="/OnlineGame/src/edu/nmt/cs/itweb/GameServlet.java" binary="false" navigable="false">      
+      <attribute name="gameMap"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="OnlineGame" name="edu.nmt.cs.itweb.GameMap" file="/OnlineGame/src/edu/nmt/cs/itweb/GameMap.java" 
+      binary="false" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <source project="OnlineGame" name="edu.nmt.cs.itweb.GameMap" file="/OnlineGame/src/edu/nmt/cs/itweb/GameMap.java" 
+      binary="false" navigable="false">      
+      <attribute name="characters"/>      
+      <multiplicity minimum="0" maximum="2147483647"/>    
+    </source>    
+    <target project="OnlineGame" name="edu.nmt.cs.itweb.GameCharacter" 
+      file="/OnlineGame/src/edu/nmt/cs/itweb/GameCharacter.java" binary="false" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <source project="OnlineGame" name="edu.nmt.cs.itweb.GameBattle" 
+      file="/OnlineGame/src/edu/nmt/cs/itweb/GameBattle.java" binary="false" navigable="false">      
+      <attribute name="player2"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="OnlineGame" name="edu.nmt.cs.itweb.GameCharacter" 
+      file="/OnlineGame/src/edu/nmt/cs/itweb/GameCharacter.java" binary="false" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <source project="OnlineGame" name="edu.nmt.cs.itweb.Inventory" 
+      file="/OnlineGame/src/edu/nmt/cs/itweb/Inventory.java" binary="false" navigable="false">      
+      <attribute name="itemlist"/>      
+      <multiplicity minimum="0" maximum="2147483647"/>    
+    </source>    
+    <target project="OnlineGame" name="edu.nmt.cs.itweb.Item" file="/OnlineGame/src/edu/nmt/cs/itweb/Item.java" 
+      binary="false" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <source project="OnlineGame" name="edu.nmt.cs.itweb.Skill" file="/OnlineGame/src/edu/nmt/cs/itweb/Skill.java" 
+      binary="false" navigable="false">      
+      <attribute name="secondary_skill"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="OnlineGame" name="edu.nmt.cs.itweb.Skill" file="/OnlineGame/src/edu/nmt/cs/itweb/Skill.java" 
+      binary="false" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <source project="OnlineGame" name="edu.nmt.cs.itweb.GameBattle" 
+      file="/OnlineGame/src/edu/nmt/cs/itweb/GameBattle.java" binary="false" navigable="false">      
+      <attribute name="player1"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="OnlineGame" name="edu.nmt.cs.itweb.GameCharacter" 
+      file="/OnlineGame/src/edu/nmt/cs/itweb/GameCharacter.java" binary="false" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <source project="OnlineGame" name="edu.nmt.cs.itweb.Skill" file="/OnlineGame/src/edu/nmt/cs/itweb/Skill.java" 
+      binary="false" navigable="false">      
+      <attribute name="required_skill"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="OnlineGame" name="edu.nmt.cs.itweb.Skill" file="/OnlineGame/src/edu/nmt/cs/itweb/Skill.java" 
+      binary="false" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <source project="OnlineGame" name="edu.nmt.cs.itweb.MarketPlace" 
+      file="/OnlineGame/src/edu/nmt/cs/itweb/MarketPlace.java" binary="false" navigable="false">      
+      <attribute name="item"/>      
+      <multiplicity minimum="0" maximum="1"/>    
+    </source>    
+    <target project="OnlineGame" name="edu.nmt.cs.itweb.Item" file="/OnlineGame/src/edu/nmt/cs/itweb/Item.java" 
+      binary="false" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <source project="OnlineGame" name="edu.nmt.cs.itweb.GameServlet" 
+      file="/OnlineGame/src/edu/nmt/cs/itweb/GameServlet.java" binary="false" navigable="false">      
+      <attribute name="charIdToBattle"/>      
+      <multiplicity minimum="0" maximum="2147483647"/>    
+    </source>    
+    <target project="OnlineGame" name="edu.nmt.cs.itweb.GameBattle" 
+      file="/OnlineGame/src/edu/nmt/cs/itweb/GameBattle.java" binary="false" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association>    
+    <source project="OnlineGame" name="edu.nmt.cs.itweb.BattleServlet" 
+      file="/OnlineGame/src/edu/nmt/cs/itweb/BattleServlet.java" binary="false" navigable="false">      
+      <attribute name="characterMap"/>      
+      <multiplicity minimum="0" maximum="2147483647"/>    
+    </source>    
+    <target project="OnlineGame" name="edu.nmt.cs.itweb.GameCharacter" 
+      file="/OnlineGame/src/edu/nmt/cs/itweb/GameCharacter.java" binary="false" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" package="true" initial-value="false" signature="true" visibility="true">    
+    <attributes public="false" package="false" protected="false" private="false"/>    
+    <operations public="false" package="false" protected="false" private="false"/>  
+  </classifier-display>  
+  <association-display labels="false" multiplicity="true"/>
+</class-diagram>

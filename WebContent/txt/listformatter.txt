@@ -1,0 +1,2 @@
+tr '\n' , < potions.txt > potions2.txt
+sed 's/,/","/g' < potions2.txt> potions3.txt

@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Updates</title>
+<link rel="stylesheet" type="text/css" href="css/all.css" />
+</head>
+<body>
+<h1>Latest Updates</h1>
+<span class="date">12/4/2010-12/5/2010</span>
+<ul>
+	<li>Everyone: Everything.</li>
+</ul>
+<span class="date">12/1/2010</span>
+<ul>
+	<li>James: Character list is working again.</li>
+	<li>James: GameCharacter class updated with two new methods for getting characters.<br />
+		To get a list of characters for an account:<br />
+		<span class="code" style="margin: 15px;">ArrayList&lt;GameCharacter&gt; characters = GameCharacter.listCharacters(email);</span><br />
+		To get a single character based on an id:<br />
+		<span class="code" style="margin: 15px;">GameCharacter character = GameCharacter.getCharacter(id)</span></li>
+        <li>Marc: Quest.java and QuestLog.java were added</li>
+        <li>Marc: NPC method added within GameCharacter.java</li>
+</ul>
+<span class="date">11/24/2010</span>
+<ul>
+	<li>James: Added inventory and quest log windows to world view. Just press 'i' or 'q' to open/close them while focused on the map. The buttons don't actually work yet.</li>
+</ul>
+<span class="date">11/23/2010</span>
+<ul>
+	<li>James: DBConnection.java added. Start using <span class="code">DBConnection.getConnection()</span> instead of <span class="code">DriverManager.getConnection("jdbc:mysql://wernicke.homeftp.net:3306/it321", "it321dba","it321DBA");</span>.</li>
+	<li>James: Fixed battle.html so it didn't make scroll bars. (CanvasContainer had a fixed width that was too wide.)</li>
+	<li>James: Change login button to enable as soon as anything is typed in password field for you tabber types.</li>
+	<li>James: Changed userHome.jsp (Added iframe for characters.jsp)</li>
+	<li>James: Changed login.jsp back to load userHome.jsp to improve performance. The GameServlet is now called in the new iframe in userHome.jsp which then loads up characters.jsp. This way, userHome can load while waiting for characters to be loaded.</li>
+	<li>James: Character creation page works!</li>
+	<li>James: Changed Character to GameCharacter so there's no ambiguity with the built-in Character object.</li>
+</ul>
+<span class="date">11/21/2010</span>
+<ul>
+	<li>James: Added HTML framework for character display on account
+	home page.</li>
+	<li>James: Made randomly generated title persist while a session is active.</li>
+</ul>
+<span class="date">11/20/2010</span>
+<ul>
+	<li>David H.: Added new titles and themes to title generator.</li>
+	<li>James: Fixed issue with session variables not storing.</li>
+</ul>
+<span class="date">11/19/2010</span>
+<ul>
+	<li>David D.: Changed userHome.jsp to include divs for displaying
+	characters and character details</li>
+	<li>David D.: Right now, I hard coded my email so it pulls my one
+	character and sets a button for him and when you click it, it displays
+	the character's details</li>
+	<li>David D.: I hardcoded my email so that everyone can see a
+	character (because not everyone has one) and because I'm unable to get
+	to the session variables. My name even stopped being displayed...
+	James?</li>
+	<li>James: Created logout option.</li>
+	<li>James: Changed index.html to index.jsp.</li>
+	<li>James: Changed login.html to login.jsp.</li>
+	<li>James: Changed frameset.html to frameset.jsp.</li>
+</ul>
+<span class="date">11/18/2010</span>
+<ul>
+	<li>James: You no longer have to log in unless you are inactive
+	for more than an hour.</li>
+	<li>James: Created "how to play" page.</li>
+	<li>James: Fixed login errors due to null first names. (Make sure
+	you create your accounts using the registration page, and not
+	manually!)</li>
+</ul>
+<span class="date">11/16/2010</span>
+<ul>
+	<li>James: Switched over to new database.</li>
+	<li>James: Personalized user home page.</li>
+</ul>
+<span class="date">10/28/2010</span>
+<ul>
+	<li>James: Fixed login for Firefox users.</li>
+</ul>
+<span class="date">10/15/2010</span>
+<ul>
+	<li>James: User home page / tutorial added.</li>
+	<li>James: WASD keys and mouse clicks now navigate player around
+	map!</li>
+</ul>
+<span class="date">10/14/2010</span>
+<ul>
+	<li>James: Map added to navigation page.</li>
+	<li>James: Player marker added to map.</li>
+</ul>
+<span class="date">10/13/2010</span>
+<ul>
+	<li>James: Game title/subtitle randomly generates on page load
+	until we decide on a name.</li>
+	<li>James: Home page is live!</li>
+</ul>
+</body>
+</html>

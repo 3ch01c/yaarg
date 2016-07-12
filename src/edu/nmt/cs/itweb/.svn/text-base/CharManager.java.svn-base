@@ -1,0 +1,136 @@
+package edu.nmt.cs.itweb;
+
+import java.sql.*;
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+/**
+ * Servlet implementation class createChar
+ */
+public class createChar extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	PrintWriter out;
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public createChar() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		String charName = request.getParameter("charName");
+		String charClass = request.getParameter("charClass");
+		out = response.getWriter();
+		response.setContentType("text/html");
+		Boolean failboat = new Boolean(false);
+		String charOwner = request.getSession().getAttribute("email")
+				.toString();
+
+                //String userId = request.getParameter("uid"); // Commented out because it's not being used
+                HttpSession session = request.getSession();
+                String address, streetAddress = session.getAttribute("address").toString(),
+			city = session.getAttribute("city").toString(),
+			state = session.getAttribute("state").toString(),
+			zip = session.getAttribute("zip").toString(),
+			country = session.getAttribute("country").toString();
+                if (!streetAddress.equals("")) address = streetAddress+", "+city+", "+state+", "+zip+", "+country;
+            else address = "Socorro, NM";
+
+                ResultSet rs_classStats = null;
+
+		if (!failboat) {
+
+			try {
+				Connection con = DBConnection.getConnection();
+				Statement stmt = con.createStatement();
+
+                                rs_classStats = stmt
+						.executeQuery("SELECT * FROM `it321`.`class` WHERE `class`='"
+							+ charClass + "';");
+
+                                rs_classStats.next();
+                                String hp = rs_classStats.getString("hp_base");
+                                String energy = rs_classStats.getString("energy_base");
+
+                                
+
+				stmt
+						.executeUpdate("INSERT INTO `it321`.`character` (`owner`,`class`,`name`,`type`,`hp`,`energy`,`strength`," +
+                                                               "`magic`,`dexterity`,`luck`,`hp_regen`,`current_hp`,`energy_regen`,`current_energy`," +
+                                                               "`armor`,`armor_pen`,`magic_res`,`magic_pen`,`base_phys_damage`,`base_magic_damage`," +
+                                                               "`attack_speed`,`hit_chance`,`crit_chance`,`evasion`,`icon_url`,`location`) VALUES ('"
+								+ charOwner + "','"
+								+ charClass + "','"
+								+ charName + "','"
+                                                                + "Character','"
+                                                                + hp + "','"
+                                                                + energy + "','"
+                                                                + rs_classStats.getString("str_base") + "','"
+                                                                + rs_classStats.getString("mag_base") + "','"
+                                                                + rs_classStats.getString("dex_base") + "','"
+                                                                + rs_classStats.getString("luck_base") + "','"
+                                                                + rs_classStats.getString("hp_regen_base") + "','"
+                                                                + hp + "','"
+                                                                + rs_classStats.getString("energy_regen_base") + "','"
+                                                                + energy + "','"
+                                                                + rs_classStats.getString("armor_base") + "','"
+                                                                + rs_classStats.getString("armor_pen_base") + "','"
+                                                                + rs_classStats.getString("magic_res_base") + "','"
+                                                                + rs_classStats.getString("magic_pen_base") + "','"
+                                                                + rs_classStats.getString("phys_dmg_base") + "','"
+                                                                + rs_classStats.getString("magic_dmg_base") + "','"
+                                                                + rs_classStats.getString("att_spd_base") + "','"
+                                                                + rs_classStats.getString("hit_base") + "','"
+                                                                + rs_classStats.getString("crit_base") + "','"
+                                                                + rs_classStats.getString("evasion_base") + "','"
+                                                                + "images/auron.png','"
+                                                                + address + "');");
+
+			} catch (Exception e) {
+				DisplayError("<h2>Error Creating Character</h2>\n"
+						+ "<p>" + e + "</p>");
+                                failboat = true;
+			}
+		}
+
+		if (!failboat) {
+			DisplayError("<h2>Character Created</h2>\n"
+					+ "Your character "
+					+ charName
+					+ " has been created.\n"
+					+ "<p>Back to your <a href='userHome.jsp'>home page</a>.</p>");
+		}
+	}
+
+	private void DisplayError(String e) {
+		out
+				.println("<head>\n"
+						+ "<link rel='stylesheet' type='text/css' href='css/all.css' />\n"
+						+ "</head>\n" + "<body>\n");
+		out.println(e);
+		out.println("\n</body>\n");
+	}
+}

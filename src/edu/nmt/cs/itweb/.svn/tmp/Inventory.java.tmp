@@ -1,0 +1,80 @@
+package edu.nmt.cs.itweb;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class login
+ */
+public class Inventory extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	PrintWriter out;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public Inventory() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doPost(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		String char_id = request.getParameter("charID");
+		out = response.getWriter();
+		response.setContentType("text/html");
+		ResultSet rs = null;
+		Boolean failboat = false;
+		
+		try {
+			Connection con = DriverManager.getConnection("jdbc:mysql://wernicke.homeftp.net:3306/it321", "it321dba", "it321DBA");
+			Statement stmt = con.createStatement();
+			rs = stmt.executeQuery("SELECT item_id FROM `it321`.`inventory` WHERE (`char_id`='"+char_id+"');");
+		} catch(Exception e) {
+			failboat = true;
+		}
+		if (!failboat) {
+			try {
+				if (!rs.next()) {
+					DisplayError("Invalid email or password. Go back to the <a href='Inventory.html'>main page</a> to try logging in again. or <a href='signup.jsp'>register a new account</a>");
+				} else {
+					/* This is a temporary behavior that forwards to the frameset page.
+					 * TODO The frameset should be a protected page that only allows authenticated users to view it.
+					 */
+					DisplayError("Item ID:"+rs.getObject("item_id"));
+				}
+			} catch (Exception e) {
+				failboat = true;
+			}
+		}
+		DisplayError("There was an error processing your request. Go back to the <a href='Inventory.html'>main page</a> to try logging in again.");
+	}
+	
+	private void DisplayError(String e) {
+		out.println("<head>\n"+
+				"<link rel='stylesheet' type='text/css' href='css/all.css' />\n" +
+				"</head>\n" +
+				"<body>\n");
+		out.println("<p>"+e+"</p>");
+		out.println("\n</body>\n");
+	}
+}

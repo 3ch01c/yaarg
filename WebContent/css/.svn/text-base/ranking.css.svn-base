@@ -1,0 +1,25 @@
+#ranking table tr th {
+	font-weight: bold;
+	color: #FFF;
+	background-color: #600;
+}
+.filter caption{
+	background-color: #600;
+}
+.filter {
+	background-color: #333;
+	border-bottom: solid 3px #600;
+}
+#ranking .sortable tr {
+	background-color: #CCC;
+	color: #000000;
+}
+#ranking table {
+	text-align: center;
+	cursor: default;
+	border-top: solid 3px #600;
+	border-bottom: solid 3px #600;
+}
+option:hover {
+	background-color: #600;
+}

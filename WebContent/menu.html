@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<link rel="stylesheet" type="text/css" href="css/all.css" />
+<script type="text/javascript">
+	function goHome(){
+		window.parent.document.getElementById("mainframe").getElementsByTagName("iframe").item(0).src = "userHome.jsp";
+		//window.parent.mainframe.src = "http://itweb.cs.nmt.edu/~jwernick/project/userHome.jsp";
+	}
+        function goFight(){
+		window.parent.document.getElementById("mainframe").getElementsByTagName("iframe").item(0).src = "battleContainer.html";
+	}
+</script>
+<style type="text/css">
+<!--
+input,a {
+	width: 100%;
+	height: 100%;
+}
+
+td {
+	text-align: center;
+}
+-->
+</style>
+</head>
+<body>
+<div style="border: 1px solid red; height: 96px;">
+<table align="center" style="width: 100%; height: 100%">
+	<tr>
+		<td><input type="button" value="Fight" onclick="goFight()" /></td>
+		<td><input type="button" value="Inventory" onclick="alert('This is broken. Instead, you can push \'i\' to open up inventory. You must be focused on the map, though.')"/></td>
+	</tr>
+	<tr>
+		<td><input type="button" value="Quest" onclick="alert('This is broken. Instead, you can push \'q\' to open up the quest log. You must be focused on the map, though.')" /></td>
+		<td><input type="button" value="Home" onclick="goHome()" /></td>
+	</tr>
+</table>
+</div>
+</body>
+</html>

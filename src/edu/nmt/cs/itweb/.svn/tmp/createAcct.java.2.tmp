@@ -1,0 +1,114 @@
+package edu.nmt.cs.itweb;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.*;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class createAcct
+ */
+public class createAcct extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	PrintWriter out;
+
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public createAcct() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		out = response.getWriter();
+		response.setContentType("text/html");
+		Boolean failboat = new Boolean(false);
+
+		String firstName = request.getParameter("firstName");
+		if (firstName.equals("First name")) {
+			firstName = "";
+		}
+		//String middleName = request.getParameter("middleName");
+		String lastName = request.getParameter("lastName");
+		if (lastName.equals("Last name")) {
+			lastName = "";
+		}
+		String streetAddress = request.getParameter("address");
+		if (streetAddress.equals("Street address")) {
+			streetAddress = "";
+		}
+		String city = request.getParameter("city");
+		if (city.equals("City")) {
+			city = "";
+		}
+		String state = request.getParameter("state");
+		if (state.equals("State")) {
+			state = "";
+		}
+		String zip = request.getParameter("zip");
+		if (zip.equals("ZIP")) {
+			zip = "";
+		}
+		String country = request.getParameter("country");
+		if (country.equals("Country")) {
+			country = "";
+		}
+		String email = request.getParameter("email");
+		if (email.equals("")) {
+			out.println("<body><p>You must use a valid email to create an account.</p>\n" +
+					"<p>Go back to the <a href='/OnlineGame/signup.jsp'>signup page</a>.</p></body>");
+			failboat = true;
+		}
+		String passwd = request.getParameter("pass1");
+		String pass2 = request.getParameter("pass2");
+				
+		if (!passwd.equals(pass2)) {
+			out.println("<head><link rel='stylesheet' type='text/css' href='css/all.css' /></head>");
+			out.println("<body><p>Passwords don't match!</p><p>Go back to the <a href='/OnlineGame/signup.jsp'>signup page</a>.</p></body>");
+			failboat = true;
+		}
+
+		if (!failboat) {
+			try
+			{
+				Connection con = DriverManager.getConnection("jdbc:mysql://wernicke.homeftp.net:3306/it321", "it321dba", "it321DBA");
+				Statement stmt = con.createStatement();
+				//stmt.executeUpdate("INSERT INTO `it321`.`account` (`email`,`password`) VALUES ('"+email+"','"+passwd+"');");
+				stmt.executeUpdate("INSERT INTO `it321`.`account` (`email`,`password`,`firstname`,`lastname`,`address`,`city`,`state`,`zip`,`country`) VALUES ('"+email+"','"+passwd+"','"+firstName+"','"+lastName+"','"+streetAddress+"','"+city+"','"+state+"','"+zip+"','"+country+"');");
+			}
+			catch(Exception e)
+			{
+				DisplayError("That email already exists! If you need to reset your password, <a href='passwordReset.html'>click here</a>.</p><p>Otherwise, go back to the <a href='/OnlineGame/signup.jsp'>signup page</a>.");
+				failboat = true;
+			}
+		}
+		
+		if (!failboat) {
+			DisplayError("Your account has been created! Go back to the <a href='login.html'>main page</a> to log in.");
+		}
+	}
+
+	private void DisplayError(String e) {
+		out.println("<head>\n"+
+				"<link rel='stylesheet' type='text/css' href='css/all.css' />\n" +
+				"</head>\n" +
+				"<body>\n");
+		out.println("<p>"+e+"</p>");
+		out.println("\n</body>\n");
+	}
+}

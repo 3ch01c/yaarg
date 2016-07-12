@@ -1,0 +1,57 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="java.util.Iterator"%>
+<%@ page import="edu.nmt.cs.itweb.*"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+<base target="_parent" />
+<link rel="stylesheet" type="text/css" href="css/all.css" />
+<script src="js/gameServletAjaxFunctions.js" type="text/javascript"></script>
+</head>
+<body>
+<table>
+	<tr>
+		<%
+			@SuppressWarnings(value = "unchecked")
+			ArrayList<GameCharacter> characters = (ArrayList<GameCharacter>) request
+					.getSession().getAttribute("CharacterList");
+			Iterator<GameCharacter> charItr = characters.iterator();
+			while (charItr.hasNext()) {
+				GameCharacter character = (GameCharacter) charItr.next();
+		%>
+		<td>
+		<table class="character">
+			<tr>
+				<td rowspan="4"><img src="images/auron.png" height="75"
+					width="50" /></td>
+				<td><%=character.getName()%></td>
+			</tr>
+			<tr>
+				<td>Level <%=character.getLevel()%></td>
+			</tr>
+			<tr>
+				<td><%=character.getChar_class()%></td>
+			</tr>
+			<tr>
+				<td><%=character.getLocation()%></td>
+			</tr>
+			<tr>
+<<<<<<< .mine
+				<td colspan="2" align="center">Edit | <a href="worldView.jsp?charId=<%=character.getId()%>">Play</a></td>
+=======
+				<td colspan="2" align="center">Edit | <a href="worldView.jsp?charName=<%=character.getName()%>">Play</a></td>
+>>>>>>> .r118
+			</tr>
+		</table>
+		</td>
+		<%
+			}
+		%>
+	</tr>
+</table>
+</body>
+</html>

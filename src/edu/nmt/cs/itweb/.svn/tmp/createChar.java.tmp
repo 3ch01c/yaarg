@@ -1,0 +1,87 @@
+package edu.nmt.cs.itweb;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.*;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class createChar
+ */
+public class createChar extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	PrintWriter out;
+      
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public createChar() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		String charName = request.getAttribute("name").toString();
+		String charClass = request.getAttribute("class").toString();
+		out = response.getWriter();
+		response.setContentType("text/html");
+		Boolean failboat = new Boolean(false);
+<<<<<<< .mine
+=======
+                String charOwner = request.getSession().getAttribute("email").toString();
+                String charClass = request.getParameter("charClass");
+                String charName = request.getParameter("charName");
+
+                if(!failboat){
+
+                    try{
+                        Connection con = DriverManager.getConnection(
+						"jdbc:mysql://wernicke.homeftp.net:3306/it321",
+						"it321dba", "it321DBA");
+				Statement stmt = con.createStatement();
+
+                                stmt.executeUpdate("INSERT INTO `it321`.`character` (`owner`,`class`,`name`) VALUES ('"
+                                        + charOwner
+                                        + "','"
+                                        + charClass
+                                        + "','"
+                                        + charName + "');");
+                    } catch (Exception e) {
+				DisplayError("<h2>Error Creating Character</h2>\n"
+						+ "<p>Error.</p>");
+				failboat = true;
+                    }
+                }
+
+                if (!failboat) {
+			DisplayError("<h2>Character Created</h2>\n" +
+                                    "Your character " + charName + " has been created.\n"
+                                    + "<p>Back to your <a href='userHome.jsp'>home page</a>.</p>");
+		}
+>>>>>>> .r89
+	}
+
+        private void DisplayError(String e) {
+		out
+				.println("<head>\n"
+						+ "<link rel='stylesheet' type='text/css' href='css/all.css' />\n"
+						+ "</head>\n" + "<body>\n");
+		out.println(e);
+		out.println("\n</body>\n");
+	}
+}

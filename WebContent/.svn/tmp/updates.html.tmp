@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>Updates</title>
+<link rel="stylesheet" type="text/css" href="css/all.css"/>
+</head>
+<body>
+	<h1>Latest Updates</h1>
+	<span class="date">11/16/2010</span>
+	<ul>
+		<li>Need to fix null first names with login.</li>
+	</ul>
+	<span class="date">11/16/2010</span>
+	<ul>
+		<li>Switched over to new database.</li>
+		<li>Personalized user home page.</li>
+	</ul>
+	<span class="date">10/28/2010</span>
+	<ul>
+		<li>Fixed login for Firefox users.</li>
+	</ul>
+	<span class="date">10/15/2010</span>
+	<ul>
+		<li>User home page / tutorial added.</li>
+	    <li>WASD keys and mouse clicks now navigate player around map!</li>
+	</ul>
+	<span class="date">10/14/2010</span>
+	<ul>
+	    <li>Map added to navigation page.</li>
+	    <li>Player marker added to map.</li>
+	</ul>
+	<span class="date">10/13/2010</span>
+	<ul>
+		<li>Game title/subtitle randomly generates on page load until we decide on a name.</li>
+		<li>Home page is live!</li>
+	</ul>
+</body>
+</html>

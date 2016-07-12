@@ -1,0 +1,61 @@
+
+package edu.nmt.cs.itweb;
+
+/**
+ *
+ * @author ddumas
+ */
+public class GameBattle {
+    private boolean pvp;
+    private GameCharacter player1;
+    private GameCharacter player2;
+    private int turn;
+    //this tells us whose turn it is, player1 is true, player2 false
+    private Integer whoseTurn;
+
+    public GameBattle(GameCharacter p1, GameCharacter p2, boolean isPVP)
+    {
+        player1 = p1;
+        player2 = p2;
+        pvp = isPVP;
+        turn = 0;
+        whoseTurn = player1.getId();
+    }
+
+    public void setPlayer1(GameCharacter p1)
+    {
+        this.player1 = p1;
+    }
+    public GameCharacter getPlayer1()
+    {
+        return this.player1;
+    }
+
+    public void setDefender(GameCharacter p2)
+    {
+        this.player2 = p2;
+    }
+    public GameCharacter getPlayer2()
+    {
+        return this.player2;
+    }
+
+    public void incrementTurn()
+    {
+        turn+=1;
+    }
+    public int getTurn()
+    {
+        return turn;
+    }
+
+    public boolean isPVP()
+    {
+        return this.pvp;
+    }
+
+    public Integer whoseTurn()
+    {
+        return this.whoseTurn;
+    }
+}

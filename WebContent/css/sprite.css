@@ -1,0 +1,289 @@
+/*
+ *NOTE:
+ *All items are referenced by their names, not ID's'! Therefore, we may have to
+ *consider fixing up names, or changing this to be id's, or makeing id's strings
+ *in the future.
+*/
+
+.sprite {
+	background: url('../images/iconlist.png');
+	width: 34px;
+	height: 34px;
+}
+/*line 1*/
+#pberry {background-position: 476px 1020px;}
+#cherry {background-position: 442px 1020px;}
+#gapple {background-position: 408px 1020px;}
+#rapple {background-position: 374px 1020px;}
+#orange {background-position: 340px 1020px;}
+#ggrapes {background-position: 306px 1020px;}
+#pgrapes {background-position: 272px 1020px;}
+#watermelon {background-position: 238px 1020px;}
+#strawberry {background-position: 204px 1020px;}
+#papaya {background-position: 170px 1020px;}
+#lemon {background-position: 136px 1020px;}
+#pineapple {background-position: 102px 1020px;}
+#banana {background-position: 68px 1020px;}
+#acorn {background-position: 34px 1020px;}
+
+/*line 2*/
+#radish {background-position: 476px 986px;}
+#carrot {background-position: 442px 986px;}
+#gpepper {background-position: 408px 986px;}
+#ypepper {background-position: 374px 986px;}
+#rpepper {background-position: 340px 986px;}
+#mushroom {background-position: 306px 986px;}
+#egg {background-position: 272px 986px;}
+#bread {background-position: 238px 986px;}
+#pie {background-position: 204px 986px;}
+#cheese {background-position: 170px 986px;}
+#rfish {background-position: 136px 986px;}
+#rsteak {background-position: 102px 986px;}
+#cfish {background-position: 68px 986px;}
+#csteak {background-position: 34px 986px;}
+
+/*line 3*/
+#brpot {background-position: 476px 952px;}
+#bopot {background-position: 442px 952px;}
+#bypot {background-position: 408px 952px;}
+#bbpot {background-position: 374px 952px;}
+#bppot {background-position: 340px 952px;}
+#bgpot {background-position: 306px 952px;}
+#bwpot {background-position: 272px 952px;}
+#srpot {background-position: 238px 952px;}
+#sopot {background-position: 204px 952px;}
+#sypot {background-position: 170px 952px;}
+#sbpot {background-position: 136px 952px;}
+#sppot {background-position: 102px 952px;}
+#sgpot {background-position: 68px 952px;}
+#swpot {background-position: 34px 952px;}
+
+/*line 4*/
+#trpot {background-position: 476px 918px;}
+#topot {background-position: 442px 918px;}
+#typot {background-position: 408px 918px;}
+#tbpot {background-position: 374px 918px;}
+#tppot {background-position: 340px 918px;}
+#tgpot {background-position: 306px 918px;}
+#twpot {background-position: 272px 918px;}
+#mrpot {background-position: 238px 918px;}
+#mopot {background-position: 204px 918px;}
+#mypot {background-position: 170px 918px;}
+#mbpot {background-position: 136px 918px;}
+#mppot {background-position: 102px 918px;}
+#mgpot {background-position: 68px 918px;}
+#mwpot {background-position: 34px 918px;}
+
+/*line 5*/
+#tepot {background-position: 476px 884px;}
+#sepot {background-position: 442px 884px;}
+#bepot {background-position: 408px 884px;}
+#mepot {background-position: 374px 884px;}
+#mbubpot {background-position: 340px 884px;}
+#gpicklepot {background-position: 306px 884px;}
+#ppicklepot {background-position: 272px 884px;}
+#sgbilepot {background-position: 238px 884px;}
+#bgbilepot {background-position: 204px 884px;}
+#bbbilepot {background-position: 170px 884px;}
+#mpbilepot {background-position: 136px 884px;}
+#sybilepot {background-position: 102px 884px;}
+#trocketpot {background-position: 68px 884px;}
+#trainbowpot {background-position: 34px 884px;}
+
+/*line 6*/
+#ssword {background-position: 476px 850px;}
+#msword {background-position: 442px 850px;}
+#lsword {background-position: 408px 850px;}
+#r1sword {background-position: 374px 850px;}
+#r2sword {background-position: 340px 850px;}
+#sfatsword {background-position: 306px 850px;}
+#bfatsword {background-position: 272px 850px;}
+#joustsword {background-position: 238px 850px;}
+#arrowsword {background-position: 204px 850px;}
+#goldsword {background-position: 170px 850px;}
+#longsword {background-position: 136px 850px;}
+#cloudsword {background-position: 102px 850px;}
+#bentsword {background-position: 68px 850px;}
+#billysword {background-position: 34px 850px;}
+
+/*line 7*/
+#mknife {background-position: 476px 816px;}
+#sknife {background-position: 442px 816px;}
+#aknife {background-position: 408px 816px;}
+#sawblade {background-position: 374px 816px;}
+#r1assassinblade {background-position: 340px 816px;}
+#r2assassinblade {background-position: 306px 816px;}
+#r3assassinblade {background-position: 272px 816px;}
+#r1claw {background-position: 238px 816px;}
+#r2claw {background-position: 204px 816px;}
+#r3claw {background-position: 170px 816px;}
+#r4claw {background-position: 136px 816px;}
+#r5claw {background-position: 102px 816px;}
+#r6claw {background-position: 68px 816px;}
+#r7claw {background-position: 34px 816px;}
+
+/*line 8*/
+#r1glove {background-position: 476px 782px;}
+#r2glove {background-position: 442px 782px;}
+#r3glove {background-position: 408px 782px;}
+#r4glove {background-position: 374px 782px;}
+#r5glove {background-position: 340px 782px;}
+#r1gun {background-position: 306px 782px;}
+#r2gun {background-position: 272px 782px;}
+#r3gun {background-position: 238px 782px;}
+#arrow {background-position: 204px 782px;}
+#gaxe {background-position: 170px 782px;}
+#kunai {background-position: 136px 782px;}
+#r1shuriken {background-position: 102px 782px;}
+#r2shuriken {background-position: 68px 782px;}
+#r3shuriken {background-position: 34px 782px;}
+
+/*line 9*/
+#r1pole {background-position: 476px 748px;}
+#r2pole {background-position: 442px 748px;}
+#r3pole {background-position: 408px 748px;}
+#r4pole {background-position: 374px 748px;}
+#r5pole {background-position: 340px 748px;}
+#r6pole {background-position: 306px 748px;}
+#r7pole {background-position: 272px 748px;}
+#r8pole {background-position: 238px 748px;}
+#r9pole {background-position: 204px 748px;}
+#r10pole {background-position: 170px 748px;}
+#r11pole {background-position: 136px 748px;}
+#r12pole {background-position: 102px 748px;}
+#r13pole {background-position: 68px 748px;}
+#godsword {background-position: 34px 748px;}
+
+/*line 10*/
+#r1club {background-position: 476px 714px;}
+#r2club {background-position: 442px 714px;}
+#r3club {background-position: 408px 714px;}
+#r4club {background-position: 374px 714px;}
+#r5club {background-position: 340px 714px;}
+#r1mace {background-position: 306px 714px;}
+#r1slapperchain {background-position: 272px 714px;}
+#r1wand {background-position: 238px 714px;}
+#r2wand {background-position: 204px 714px;}
+#r3wand {background-position: 170px 714px;}
+#r4wand {background-position: 136px 714px;}
+#r5wand {background-position: 102px 714px;}
+#r6wand {background-position: 68px 714px;}
+#r7wand {background-position: 34px 714px;}
+
+/*line 11*/
+#r1axe {background-position: 476px 680px;}
+#r2axe {background-position: 442px 680px;}
+#r3axe {background-position: 408px 680px;}
+#r4axe {background-position: 374px 680px;}
+#r5axe {background-position: 340px 680px;}
+#r6axe {background-position: 306px 680px;}
+#r7axe {background-position: 272px 680px;}
+#r8axe {background-position: 238px 680px;}
+#r9axe {background-position: 204px 680px;}
+#r10axe {background-position: 170px 680px;}
+#r11axe {background-position: 136px 680px;}
+#r12axe {background-position: 102px 680px;}
+#r13axe {background-position: 68px 680px;}
+#r14axe {background-position: 34px 680px;}
+
+/*line 12*/
+#r1bow {background-position: 476px 646px;}
+#r2bow {background-position: 442px 646px;}
+#r3bow {background-position: 408px 646px;}
+#r4bow {background-position: 374px 646px;}
+#r5bow {background-position: 340px 646px;}
+#r6bow {background-position: 306px 646px;}
+#r7bow {background-position: 272px 646px;}
+#r8bow {background-position: 238px 646px;}
+#r9bow {background-position: 204px 646px;}
+#r10bow {background-position: 170px 646px;}
+#r11bow {background-position: 136px 646px;}
+#r12bow {background-position: 102px 646px;}
+#r13bow {background-position: 68px 646px;}
+#r14bow {background-position: 34px 646px;}
+
+/*line 13*/
+#r1shield {background-position: 476px 612px;}
+#r2shield {background-position: 442px 612px;}
+#r3shield {background-position: 408px 612px;}
+#r4shield {background-position: 374px 612px;}
+#r5shield {background-position: 340px 612px;}
+#r6shield {background-position: 306px 612px;}
+#r7shield {background-position: 272px 612px;}
+#r8shield {background-position: 238px 612px;}
+#r9shield {background-position: 204px 612px;}
+#r10shield {background-position: 170px 612px;}
+#r11shield {background-position: 136px 612px;}
+#r12shield {background-position: 102px 612px;}
+#r13shield {background-position: 68px 612px;}
+#r14shield {background-position: 34px 612px;}
+
+/*line 14*/
+#r1chest {background-position: 476px 578px;}
+#r2chest {background-position: 442px 578px;}
+#r3chest {background-position: 408px 578px;}
+#r4chest {background-position: 374px 578px;}
+#r5chest {background-position: 340px 578px;}
+#r6chest {background-position: 306px 578px;}
+#r7chest {background-position: 272px 578px;}
+#r1hat {background-position: 238px 578px;}
+#r2hat {background-position: 204px 578px;}
+#r3hat {background-position: 170px 578px;}
+#r4hat {background-position: 136px 578px;}
+#r5hat {background-position: 102px 578px;}
+#r6hat {background-position: 68px 578px;}
+#r7hat {background-position: 34px 578px;}
+
+/*line 15*/
+#r1shoe {background-position: 476px 544px;}
+#r2shoe {background-position: 442px 544px;}
+#r3shoe {background-position: 408px 544px;}
+#r4shoe {background-position: 374px 544px;}
+#r5shoe {background-position: 340px 544px;}
+#r6shoe {background-position: 306px 544px;}
+#r7shoe {background-position: 272px 544px;}
+#r1glove {background-position: 238px 544px;}
+#r2glove {background-position: 204px 544px;}
+#r3glove {background-position: 170px 544px;}
+#r4glove {background-position: 136px 544px;}
+#r5glove {background-position: 102px 544px;}
+#r6glove {background-position: 68px 544px;}
+#r7glove {background-position: 34px 544px;}
+
+/*line 16*/
+#r1gem {background-position: 476px 510px;}
+#r2gem {background-position: 442px 510px;}
+#r3gem {background-position: 408px 510px;}
+#r4gem {background-position: 374px 510px;}
+#r5gem {background-position: 340px 510px;}
+#r6gem {background-position: 306px 510px;}
+#r7gem {background-position: 272px 510px;}
+#r1ore {background-position: 238px 510px;}
+#r2ore {background-position: 204px 510px;}
+#r3ore {background-position: 170px 510px;}
+#r4ore {background-position: 136px 510px;}
+#r5ore {background-position: 102px 510px;}
+#r6ore {background-position: 68px 510px;}
+#r7ore {background-position: 34px 510px;}
+
+/*line 17*/
+#mirror {background-position: 476px 476px;}
+#r1feather {background-position: 442px 476px;}
+#r2feather {background-position: 408px 476px;}
+#weight {background-position: 374px 476px;}
+#greenjuice {background-position: 340px 476px;}
+#torchlit {background-position: 306px 476px;}
+#torchulit {background-position: 272px 476px;}
+#r1key {background-position: 238px 476px;}
+#r2key {background-position: 204px 476px;}
+#r3key {background-position: 170px 476px;}
+#r4key {background-position: 136px 476px;}
+#r5key {background-position: 102px 476px;}
+#bricks {background-position: 68px 476px;}
+#katamariballonastring {background-position: 32px 476px;}
+
+
+/*old! But still being used in page*/
+#sandsword {background-position: 473px 65px;}
+#radish {background-position: 473px 985px;}
+#targshield {background-position: 374px 611020px;}

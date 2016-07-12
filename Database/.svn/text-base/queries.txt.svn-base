@@ -1,0 +1,210 @@
+**********Inserts*********
+
+// Create a new account
+
+insert into Account
+values (email, user name, password)
+
+insert into AccountRole
+values (email, role)
+
+// Create new character
+
+insert into Character (char_id, char_type, owner, class)
+values (char_id, char_type, owner, class)
+
+// Pick up or receive an item
+
+insert into Inventory
+values (char_id, item_id, quantity)
+
+// Complete a quest
+
+insert into QuestLog
+values (char_id, quest_id, completed_date)
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**********Selects*********
+
+// Logging in
+
+select email, password
+from Account
+where
+	email=temp_email
+	and
+	password=temp_pass
+
+// Check an account's characters
+
+select char_id
+from Character
+where owner=temp_email
+
+// Check an account's role
+
+select role
+from AccountRole
+where email=temp_email
+
+// Get quest information
+
+select *
+from Quest
+where quest_id=temp_quest
+
+// Get prerequisites for a quest
+
+select quest_id
+from QuestRequisites
+where
+	quest_id=temp_quest
+	and
+	requisite_type="Prerequisite"
+
+// Get Corequisites for a quest
+
+select quest_id
+from QuestRequisites
+where
+	quest_id=temp_quest
+	and
+	requisite_type="Corequisite" 
+
+// Get a character's completed quests
+
+select *
+from QuestLog
+where char_id=temp_charid
+
+
+
+------------For a battle-------------
+
+// Get character info
+
+select *
+from Character
+where char_id=temp_charid
+
+// Get list of character's skills
+
+select skill_name
+from CharacterSkill
+where char_id=temp_charid
+
+// Get skill info
+
+select *
+from Skill
+where skill_name=temp_skill
+
+// Get skill modifiers
+
+select *
+from SkillModifiers
+where skill_mod_char_id=temp_charid
+
+
+// Get element info
+
+select *
+from Element
+where element_name=temp_element
+
+// Get a status effect's info
+
+select *
+from StatusEffects
+where status_name=temp_status
+
+
+
+
+
+-------------------------------------
+
+// Check character's items
+
+select item_id, item_name
+from Inventory, Item
+where
+	char_id=temp_charid
+	and
+	item_id=item_id
+
+
+	
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**********Updates********
+
+// Change character's status
+
+update Character
+set status=temp_status
+where char_id=temp_charid
+
+---------Leveling up-----------
+
+// Get class information
+
+select *
+from Character, Class
+where
+	char_id=temp_charid
+	and
+	class=class
+
+// Modified character stats
+
+update Character
+set level=temp_level, exp=temp_exp, hp=temp_hp, energy=temp_energy, strength=temp_strength, magic=temp_magic,
+	dexterity=temp_dexterity, luck=temp_luck, hp_regen=temp_hpregen, energy_regen=temp_energyregen,
+	armor=temp_armor, armor_pen=temp_armorpen, magic_res=temp_magicres, magic_pen=temp_magicpen,
+	base_phys_damage=temp_basephysdmg, base_magic_damage=temp_basemagicdmg, attack_speed=temp_attspeed,
+	hit_chance=temp_hitchance, crit_chance=temp_critchance, evasion=temp_evasion, required_xp=temp_requiredxp
+where char_id=temp_charid
+
+
+------------------------------
+
+
+// Modify an item's quantity
+
+update Inventory
+set quantity=temp_quantity
+where
+	char_id=temp_charid
+	and
+	item_id=temp_itemid
+	
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+************Deletes********
+
+// Remove a character from an account
+
+delete from Character
+where char_id=temp_charid
+
+// Drop a character's item
+
+delete from Inventory
+where
+	char_id=temp_charid
+	and
+	item_id=temp_itemid
+	
+
+
+
+
+
+
+

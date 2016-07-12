@@ -1,0 +1,143 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/WebOfWires/!svn/ver/325/Root/trunk/src/edu/nmt/cs/itweb
+END
+Quest.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/WebOfWires/!svn/ver/320/Root/trunk/src/edu/nmt/cs/itweb/Quest.java
+END
+AccountMgr.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/WebOfWires/!svn/ver/324/Root/trunk/src/edu/nmt/cs/itweb/AccountMgr.java
+END
+CharacterMgr.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/WebOfWires/!svn/ver/324/Root/trunk/src/edu/nmt/cs/itweb/CharacterMgr.java
+END
+ItemMgr.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/WebOfWires/!svn/ver/319/Root/trunk/src/edu/nmt/cs/itweb/ItemMgr.java
+END
+DBConnection.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/WebOfWires/!svn/ver/226/Root/trunk/src/edu/nmt/cs/itweb/DBConnection.java
+END
+GameBattle.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/WebOfWires/!svn/ver/259/Root/trunk/src/edu/nmt/cs/itweb/GameBattle.java
+END
+QuestMgr.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/WebOfWires/!svn/ver/321/Root/trunk/src/edu/nmt/cs/itweb/QuestMgr.java
+END
+GameMap.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/WebOfWires/!svn/ver/176/Root/trunk/src/edu/nmt/cs/itweb/GameMap.java
+END
+Level.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/WebOfWires/!svn/ver/299/Root/trunk/src/edu/nmt/cs/itweb/Level.java
+END
+Button.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/WebOfWires/!svn/ver/249/Root/trunk/src/edu/nmt/cs/itweb/Button.java
+END
+getDamage.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/WebOfWires/!svn/ver/159/Root/trunk/src/edu/nmt/cs/itweb/getDamage.java
+END
+Skill.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/WebOfWires/!svn/ver/210/Root/trunk/src/edu/nmt/cs/itweb/Skill.java
+END
+GameServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/WebOfWires/!svn/ver/309/Root/trunk/src/edu/nmt/cs/itweb/GameServlet.java
+END
+BattleServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/WebOfWires/!svn/ver/309/Root/trunk/src/edu/nmt/cs/itweb/BattleServlet.java
+END
+ButtonServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/WebOfWires/!svn/ver/304/Root/trunk/src/edu/nmt/cs/itweb/ButtonServlet.java
+END
+details.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/WebOfWires/!svn/ver/106/Root/trunk/src/edu/nmt/cs/itweb/details.java
+END
+GameCharacter.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/WebOfWires/!svn/ver/277/Root/trunk/src/edu/nmt/cs/itweb/GameCharacter.java
+END
+NpcMgr.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/WebOfWires/!svn/ver/323/Root/trunk/src/edu/nmt/cs/itweb/NpcMgr.java
+END
+MarketPlace.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/WebOfWires/!svn/ver/324/Root/trunk/src/edu/nmt/cs/itweb/MarketPlace.java
+END
+SkillInventory.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/WebOfWires/!svn/ver/298/Root/trunk/src/edu/nmt/cs/itweb/SkillInventory.java
+END
+Inventory.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/WebOfWires/!svn/ver/278/Root/trunk/src/edu/nmt/cs/itweb/Inventory.java
+END
+Item.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/WebOfWires/!svn/ver/324/Root/trunk/src/edu/nmt/cs/itweb/Item.java
+END
+Stats.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/WebOfWires/!svn/ver/325/Root/trunk/src/edu/nmt/cs/itweb/Stats.java
+END
